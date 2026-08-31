@@ -58,6 +58,10 @@ python -m src.infer --preset home_faults --hide-complete
 
 Headline 0.713 is **lower** than circuit-faults 0.831 because `complete` (easy full-crop boxes) was dropped. Weights: `models/home_faults.pt`. Proof: `results/home_faults/`. Gallery: `results/presentable/index.html`.
 
+![Defect-only PCB: open, short, damage](../results/presentable/images/19_home_faults_pcb.jpg)
+
+![Stripped wire damage](../results/presentable/images/21_home_faults_wire.jpg)
+
 ## Honest limit
 
 This mix is still **PCB AOI + outdoor cable + lab wire ends**, plus unlabeled indoor sockets. It is **closer** to the product ontology and to home appearance, but it is **not** a burned-socket / Pakistani DB model until HazardDetector (or `data/own/`) is in the mix.

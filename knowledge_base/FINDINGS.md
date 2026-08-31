@@ -16,6 +16,10 @@ Screening aid. Boxes mark a **visible** problem. Empty detections = nothing visi
 
 YOLOv8n, 320 px, CPU. Do **not** quote Tao 98.7% or Chen 99% (simulation) as these scores.
 
+![Outdoor cable strand break at confidence 0.71](../results/presentable/images/14_cable_damage_closeup.jpg)
+
+![PCB open, short, and damage boxes](../results/presentable/images/19_home_faults_pcb.jpg)
+
 ### Defect-only model (`home_faults`) — product ontology
 
 No `complete` class. Fine-tuned from `circuit_faults.pt`, 15 epochs, ~5.6 h CPU. Train 7,084 / val 1,028 / test 987.
@@ -40,6 +44,10 @@ Keep original boxes. Do not replace the photo.
 | Dual merge | **1257** | 342 | 0.786 | **0.737** |
 
 Tiles at conf 0.25: precision 0.12 — not default.
+
+![Dual merge on PCB opens](../results/presentable/images/03_pcb_opens_dual.jpg)
+
+![Cable damage confidence 0.59 to 0.70 after sharpen](../results/presentable/images/01_outdoor_cable_dual.jpg)
 
 ## Data sources
 

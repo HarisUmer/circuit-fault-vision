@@ -2,7 +2,13 @@
 
 Screen **visible** electrical / PCB / cable defects with a small YOLO detector. Bounding boxes mark the problem. This is a screening aid, not an electrical certificate. Never print “safe.” Live panels: electrician only.
 
-**Gallery:** open [`results/presentable/index.html`](results/presentable/index.html) in a browser.
+**Gallery:** [`results/presentable/index.html`](results/presentable/index.html) (open locally in a browser).
+
+<p align="center">
+  <img src="results/presentable/images/14_cable_damage_closeup.jpg" width="48%" alt="Outdoor cable strand break, confidence 0.71" />
+  <img src="results/presentable/images/19_home_faults_pcb.jpg" width="48%" alt="PCB open, short, and damage boxes" />
+</p>
+<p align="center"><sub>Left: outdoor cable <code>break</code> at 0.71 (test mAP50 <b>0.888</b>). Right: defect-only PCB — open 0.85, short 0.88, damage 0.75–0.79 (precision <b>0.81</b>).</sub></p>
 
 ## Results (this repo’s models)
 
@@ -29,6 +35,39 @@ All numbers are **held-out test** scores from YOLOv8n trained on CPU (320 px). T
 Headline 0.713 is lower than 0.831 because the easy full-board `complete` boxes were dropped. **Short** is the weakest class. Precision **0.81** on the defect-only test set.
 
 Write-up: [`knowledge_base/FINDINGS.md`](knowledge_base/FINDINGS.md) · [`research/HOME_FAULTS.md`](research/HOME_FAULTS.md)
+
+## Detections (proof stills)
+
+Boxes sit on the defect, not the whole board.
+
+<p align="center">
+  <img src="results/presentable/images/15_cable_damage_break.jpg" width="48%" alt="Four-class model boxing cable damage" />
+  <img src="results/presentable/images/07_color_pcb_short_dual.jpg" width="48%" alt="Color PCB short and damage boxes" />
+</p>
+<p align="center"><sub>Cable <code>damage</code> and color-PCB shorts — tight boxes, not a “circuit complete” crop.</sub></p>
+
+<p align="center">
+  <img src="results/presentable/images/03_pcb_opens_dual.jpg" alt="Original vs enhanced vs dual merge on PCB opens" />
+</p>
+<p align="center"><sub>Dual merge: keep original boxes, add extras from CLAHE/sharpen. Original defect precision <b>0.809</b>.</sub></p>
+
+<p align="center">
+  <img src="results/presentable/images/01_outdoor_cable_dual.jpg" alt="Cable damage confidence 0.59 to 0.70 after sharpen" />
+</p>
+<p align="center"><sub>Same cable: damage confidence <b>0.59 → 0.70</b> after sharpen; dual keeps the better score on the original photo.</sub></p>
+
+<p align="center">
+  <img src="results/presentable/images/21_home_faults_wire.jpg" width="32%" alt="Stripped wire damage box" />
+  <img src="results/presentable/images/20_home_faults_cable.jpg" width="32%" alt="Outdoor cable damage box" />
+  <img src="results/presentable/images/22_home_faults_socket_empty.jpg" width="32%" alt="Normal indoor socket with no defect box" />
+</p>
+<p align="center"><sub>Defect-only model: stripped-wire <code>damage</code>, outdoor cable <code>damage</code>, normal socket with <b>no box</b> (empty ≠ safe).</sub></p>
+
+<p align="center">
+  <img src="results/presentable/images/10_cable_damage_curves.png" width="48%" alt="Cable-damage training curves" />
+  <img src="results/presentable/images/17_home_faults_curves.png" width="48%" alt="Home-faults training curves" />
+</p>
+<p align="center"><sub>Training curves: cable-damage (mAP50 0.888) and defect-only mix (mAP50 0.713).</sub></p>
 
 ## Quick start
 

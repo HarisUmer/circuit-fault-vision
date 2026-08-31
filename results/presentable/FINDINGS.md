@@ -1,7 +1,7 @@
 # Findings
 
 **Date:** 2026-08-30  
-**Gallery:** [`results/presentable/index.html`](../results/presentable/index.html)
+**Gallery:** [`index.html`](index.html)
 
 Screening aid. Boxes mark a **visible** problem. Empty detections = nothing visible in this photo, not “safe.” Live panels: electrician only.
 
@@ -15,6 +15,10 @@ Screening aid. Boxes mark a **visible** problem. Empty detections = nothing visi
 | Synthetic home wires | `models/home_wires.pt` | 0.76 | 0.70 / 0.69 |
 
 YOLOv8n, 320 px, CPU. Do **not** quote Tao 98.7% or Chen 99% (simulation) as these scores.
+
+![Outdoor cable strand break at confidence 0.71](images/14_cable_damage_closeup.jpg)
+
+![PCB open, short, and damage boxes](images/19_home_faults_pcb.jpg)
 
 ### Defect-only model (`home_faults`) — product ontology
 
@@ -41,6 +45,10 @@ Keep original boxes. Do not replace the photo.
 
 Tiles at conf 0.25: precision 0.12 — not default.
 
+![Dual merge on PCB opens](images/03_pcb_opens_dual.jpg)
+
+![Cable damage confidence 0.59 to 0.70 after sharpen](images/01_outdoor_cable_dual.jpg)
+
 ## Data sources
 
 | Dataset | Used for | License | Link |
@@ -52,9 +60,7 @@ Tiles at conf 0.25: precision 0.12 — not default.
 | Stripped Wire | Cut/pulled strands → damage | Zenodo research | https://doi.org/10.5281/zenodo.16686806 |
 | Indoor sockets / switches | Empty-label home backgrounds | CC BY 4.0 | https://doi.org/10.5281/zenodo.18835199 |
 
-Catalog: [`research/datasets.md`](../research/datasets.md). Images are **not** in git; download scripts recreate `data/public/`.
-
-PCB / outdoor cable mAP is **not** accuracy on a Pakistani consumer unit or burned socket. HazardDetector (~6k home hazards) still needs a Roboflow API key.
+PCB / outdoor cable mAP is **not** accuracy on a Pakistani consumer unit or burned socket.
 
 ## Do not claim
 
