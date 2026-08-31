@@ -1,0 +1,172 @@
+[
+  {
+    "image": "cable_0146_bandicam-2022-05-31-00-45-21-525_mp4-53_jpg.rf.71232d38dc6548f759025f.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.596
+      }
+    ],
+    "saved": "pred_cable_0146_bandicam-2022-05-31-00-45-21-525_mp4-53_jpg.rf.71232d38dc6548f759025f.jpg"
+  },
+  {
+    "image": "cable_0147_IMG_6258_MOV-51_jpg.rf.92128a7d157098bda170729c7daf890b.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.783
+      }
+    ],
+    "saved": "pred_cable_0147_IMG_6258_MOV-51_jpg.rf.92128a7d157098bda170729c7daf890b.jpg"
+  },
+  {
+    "image": "cable_0148_bandicam-2022-05-31-00-48-19-946_mp4-28_jpg.rf.222a61017a6b109fd4738d.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.594
+      }
+    ],
+    "saved": "pred_cable_0148_bandicam-2022-05-31-00-48-19-946_mp4-28_jpg.rf.222a61017a6b109fd4738d.jpg"
+  },
+  {
+    "image": "cable_0149_--------------2022-02-24---16-37-57_png_jpg.rf.81db6bb23a0da56a9f83db.jpg",
+    "n": 0,
+    "detections": [],
+    "saved": "pred_cable_0149_--------------2022-02-24---16-37-57_png_jpg.rf.81db6bb23a0da56a9f83db.jpg"
+  },
+  {
+    "image": "cable_0150_bandicam-2022-05-31-00-45-21-525_mp4-90_jpg.rf.1dea2358ae082e987a834f.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.663
+      }
+    ],
+    "saved": "pred_cable_0150_bandicam-2022-05-31-00-45-21-525_mp4-90_jpg.rf.1dea2358ae082e987a834f.jpg"
+  },
+  {
+    "image": "cable_0151_bandicam-2022-05-31-00-48-19-946_mp4-63_jpg.rf.bfb982e12e57a0113c4427.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.641
+      }
+    ],
+    "saved": "pred_cable_0151_bandicam-2022-05-31-00-48-19-946_mp4-63_jpg.rf.bfb982e12e57a0113c4427.jpg"
+  },
+  {
+    "image": "cable_0152_bandicam-2022-05-31-00-48-19-946_mp4-79_jpg.rf.497a94f8a1c815f5ea357b.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.729
+      }
+    ],
+    "saved": "pred_cable_0152_bandicam-2022-05-31-00-48-19-946_mp4-79_jpg.rf.497a94f8a1c815f5ea357b.jpg"
+  },
+  {
+    "image": "cable_0153_IMG_6262_MOV-58_jpg.rf.fadd7ceae105c3db28067584218a3632.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.417
+      }
+    ],
+    "saved": "pred_cable_0153_IMG_6262_MOV-58_jpg.rf.fadd7ceae105c3db28067584218a3632.jpg"
+  },
+  {
+    "image": "cable_0154_IMG_6259_MOV-2_jpg.rf.6884746630bd464c87275346c3b263c5.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.529
+      }
+    ],
+    "saved": "pred_cable_0154_IMG_6259_MOV-2_jpg.rf.6884746630bd464c87275346c3b263c5.jpg"
+  },
+  {
+    "image": "cable_0155_IMG_6264_MOV-25_jpg.rf.e2461d3a87b6ccca350c8c01cc9f7933.jpg",
+    "n": 0,
+    "detections": [],
+    "saved": "pred_cable_0155_IMG_6264_MOV-25_jpg.rf.e2461d3a87b6ccca350c8c01cc9f7933.jpg"
+  },
+  {
+    "image": "cable_0156_IMG_6264_MOV-82_jpg.rf.d72789d3e0f5c4fc44a26902377c313e.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.421
+      }
+    ],
+    "saved": "pred_cable_0156_IMG_6264_MOV-82_jpg.rf.d72789d3e0f5c4fc44a26902377c313e.jpg"
+  },
+  {
+    "image": "cable_0157_bandicam-2022-05-31-00-59-19-612_mp4-109_jpg.rf.353ad3885aa513bb144e4.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.523
+      }
+    ],
+    "saved": "pred_cable_0157_bandicam-2022-05-31-00-59-19-612_mp4-109_jpg.rf.353ad3885aa513bb144e4.jpg"
+  },
+  {
+    "image": "cable_0158_IMG_6267_MOV-19_jpg.rf.2975a2cd94f92cb52e501b94775df1d0.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.273
+      }
+    ],
+    "saved": "pred_cable_0158_IMG_6267_MOV-19_jpg.rf.2975a2cd94f92cb52e501b94775df1d0.jpg"
+  },
+  {
+    "image": "cable_0159_IMG_6262_MOV-38_jpg.rf.f55bbfb0c6d10f04d755be6a6d7c2a70.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.326
+      }
+    ],
+    "saved": "pred_cable_0159_IMG_6262_MOV-38_jpg.rf.f55bbfb0c6d10f04d755be6a6d7c2a70.jpg"
+  },
+  {
+    "image": "cable_0160_bandicam-2022-05-31-00-48-19-946_mp4-90_jpg.rf.85d06c58c384c7f1b308d1.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.607
+      }
+    ],
+    "saved": "pred_cable_0160_bandicam-2022-05-31-00-48-19-946_mp4-90_jpg.rf.85d06c58c384c7f1b308d1.jpg"
+  },
+  {
+    "image": "cable_0161_IMG_6267_MOV-15_jpg.rf.c9f9e84df26744bba8a4ed529ff55a11.jpg",
+    "n": 2,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.562
+      },
+      {
+        "class": "damage",
+        "conf": 0.362
+      }
+    ],
+    "saved": "pred_cable_0161_IMG_6267_MOV-15_jpg.rf.c9f9e84df26744bba8a4ed529ff55a11.jpg"
+  }
+]

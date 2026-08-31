@@ -1,0 +1,86 @@
+{
+  "created_utc": "2026-08-28T09:35:15Z",
+  "weights": "F:/pange/circuit_fault_vision/models/circuit_faults.pt",
+  "n_images": 484,
+  "imgsz": 320,
+  "conf": 0.25,
+  "extra_conf": 0.4,
+  "iou": 0.5,
+  "merge": "keep original boxes, bump conf if enhanced agrees, add non-overlapping extras",
+  "all_classes": {
+    "original": {
+      "tp": 1311,
+      "fp": 296,
+      "fn": 458,
+      "gt": 1769,
+      "pred": 1607,
+      "precision": 0.8158,
+      "recall": 0.7411,
+      "f1": 0.7767
+    },
+    "enhanced": {
+      "tp": 1197,
+      "fp": 194,
+      "fn": 572,
+      "gt": 1769,
+      "pred": 1391,
+      "precision": 0.8605,
+      "recall": 0.6767,
+      "f1": 0.7576
+    },
+    "dual": {
+      "tp": 1314,
+      "fp": 342,
+      "fn": 455,
+      "gt": 1769,
+      "pred": 1656,
+      "precision": 0.7935,
+      "recall": 0.7428,
+      "f1": 0.7673
+    }
+  },
+  "defect_only_ignore_complete": {
+    "original": {
+      "tp": 1254,
+      "fp": 296,
+      "fn": 452,
+      "gt": 1706,
+      "pred": 1550,
+      "precision": 0.809,
+      "recall": 0.7351,
+      "f1": 0.7703
+    },
+    "enhanced": {
+      "tp": 1144,
+      "fp": 194,
+      "fn": 562,
+      "gt": 1706,
+      "pred": 1338,
+      "precision": 0.855,
+      "recall": 0.6706,
+      "f1": 0.7517
+    },
+    "dual": {
+      "tp": 1257,
+      "fp": 342,
+      "fn": 449,
+      "gt": 1706,
+      "pred": 1599,
+      "precision": 0.7861,
+      "recall": 0.7368,
+      "f1": 0.7607
+    }
+  },
+  "tiles_subset": null,
+  "images_where_dual_recovered_extra_gt": [
+    "deeppcb_0314_20085211_test.jpg",
+    "deeppcb_0328_20085319_test.jpg",
+    "deeppcb_0417_20085268_test.jpg"
+  ],
+  "n_dual_helped": 3,
+  "not_claimed": [
+    "This is not a new trained mAP from Ultralytics val()",
+    "PCB/cable test photos are not Pakistani consumer units",
+    "No boxes still does not mean electrically complete or safe"
+  ]
+}

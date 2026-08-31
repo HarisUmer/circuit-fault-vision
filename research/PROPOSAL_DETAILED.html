@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Detailed proposal — AI visual and thermal screening of electrical circuits</title>
+  <style>
+    :root {
+      --ink: #1a1f24;
+      --muted: #5c6b73;
+      --navy: #1b3a4b;
+      --teal: #2a6f7f;
+      --amber: #8a6a22;
+      --line: #e4e0d8;
+      --paper: #f7f5f1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0 auto;
+      max-width: 860px;
+      padding: 44px 36px 96px;
+      font: 15px/1.55 "Calibri", "Segoe UI", "DejaVu Sans", sans-serif;
+      color: var(--ink);
+      background: #fff;
+    }
+    h1 { font-size: 26px; line-height: 1.22; margin: 0 0 6px; color: var(--navy); font-weight: 650; }
+    h2 { font-size: 17px; margin: 34px 0 10px; color: var(--navy); border-bottom: 1px solid var(--line); padding-bottom: 6px; page-break-after: avoid; }
+    h3 { font-size: 15px; margin: 20px 0 8px; color: var(--teal); page-break-after: avoid; }
+    p, li { color: var(--ink); }
+    .kicker { color: var(--teal); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin: 0 0 8px; }
+    .meta { color: var(--muted); font-size: 13px; margin: 10px 0 22px; }
+    .meta div { margin: 2px 0; }
+    .note {
+      background: var(--paper);
+      border-left: 3px solid var(--navy);
+      padding: 12px 16px;
+      margin: 16px 0 22px;
+    }
+    figure { margin: 16px 0 8px; page-break-inside: avoid; }
+    figure img { width: 100%; height: auto; border: 1px solid var(--line); }
+    figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0 18px; page-break-inside: avoid; }
+    th, td { border-bottom: 1px solid var(--line); padding: 7px 8px 7px 0; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 650; font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; }
+    ul, ol { padding-left: 1.25em; }
+    code, .id { font-family: Consolas, "Courier New", monospace; font-size: 0.92em; }
+    .process {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+      background: var(--paper);
+      padding: 14px 16px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+      border: 1px solid var(--line);
+    }
+    .footer-warn { font-size: 13px; color: var(--navy); font-weight: 600; }
+    @media print {
+      body { padding: 10mm 12mm 14mm; max-width: none; }
+      a { color: inherit; text-decoration: none; }
+      h2 { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<p class="kicker">Detailed project proposal · Pilot</p>
+<h1>AI-assisted visual and thermal screening of electrical circuits and wiring</h1>
+<div class="meta">
+  <div><strong>Prepared for:</strong> [Client name / organisation]</div>
+  <div><strong>Prepared by:</strong> [Your name / organisation]</div>
+  <div><strong>Date:</strong> 16 August 2026</div>
+  <div>Print this file (Ctrl+P → Save as PDF) before sending. Replace the names in brackets.</div>
+</div>
+
+<div class="note">
+  This document is the statement of work. It covers <strong>what we will achieve</strong>, <strong>what we will investigate</strong>, <strong>what we will do</strong>, and <strong>the process</strong> from kickoff to a site pilot. It is a screening aid for a qualified person — not an X-ray of walls, not a statutory inspection, and not a certificate that an installation is “safe.”
+</div>
+
+<h2>Cover note</h2>
+<p>Infrared thermography is already used to find hot joints and overloaded circuits. Research from 2012–2026 shows that YOLO-style detectors can find equipment in thermal images, and that severity should be scored from <strong>temperature difference (Delta T)</strong>, not from a model guessing “loose lug” versus “overload.” What does not exist is a ready-made model for <em>your</em> distribution boards. That is the pilot: collect paired visible and thermal pictures of accessible equipment, train a detector on that domain, and produce a repeatable screening report.</p>
+
+<h2>1. Purpose</h2>
+<p>Electrical problems that start fires or take a building offline often show up as <strong>heat</strong> (loose or corroded connection, overloaded breaker or cable) or as <strong>visible damage</strong> (burned insulation, exposed copper, chewed or broken sheath). Today those signs are found by a person with a torch and, if available, a thermal camera. Results vary with skill, load at the time of the visit, and how carefully each frame is reviewed.</p>
+<p>We will build a repeatable inspection pipeline that:</p>
+<ul>
+  <li>photographs accessible electrical equipment in <strong>visible light</strong> and <strong>radiometric infrared</strong>;</li>
+  <li><strong>locates</strong> boards, breakers, busbars, lugs, cables, and obvious visible defects;</li>
+  <li><strong>measures</strong> how much hotter a part is than its neighbours and than ambient air;</li>
+  <li><strong>ranks</strong> findings using NETA MTS Table 100.18 bands and NFPA 70B practice;</li>
+  <li><strong>hands a report</strong> to a qualified electrician — two photos, a location, a Delta T, a suggested action — never a stamp that says “safe.”</li>
+</ul>
+<p>If the pilot succeeds you will have: a labeled dataset of your equipment, a trained still-image model (video later), a capture protocol, and a written list of what the system can and cannot see.</p>
+
+<h2>2. Objectives of the pilot</h2>
+<table>
+  <thead><tr><th>ID</th><th>Objective</th><th>How we know it is met</th></tr></thead>
+  <tbody>
+    <tr><td>O1</td><td>Prove the software toolchain on public thermal and cable-damage images</td><td>Trained YOLO baseline and a short demo</td></tr>
+    <tr><td>O2</td><td>Capture paired visible + thermal data of <em>your</em> accessible boards under load</td><td>300–800 labeled paired frames across several boards, with metadata</td></tr>
+    <tr><td>O3</td><td>Train detectors on your equipment</td><td>mAP on a <strong>held-out board</strong> (not a random split of the same panel)</td></tr>
+    <tr><td>O4</td><td>Score heat using Delta T inside each detected part</td><td>Sibling and ambient ΔT in the report; NETA band attached</td></tr>
+    <tr><td>O5</td><td>Still-image screening report a person can use on site</td><td>Visible + thermal photo, ID, ΔT, load note, action band</td></tr>
+    <tr><td>O6</td><td>State detection limits in writing</td><td>User-facing “cannot detect” list signed off with you</td></tr>
+    <tr><td>O7</td><td>(Optional) Track the same part across a pan video</td><td>ByteTrack IDs; no duplicate alerts for one hot lug</td></tr>
+  </tbody>
+</table>
+<p>Fees, intellectual property, and a production rollout would be a separate agreement after the pilot.</p>
+
+<h2>3. What will be investigated</h2>
+<p>Every item below is something we will <strong>study, measure, or explicitly rule out</strong> — not a promise that the software will find all electrical problems.</p>
+
+<h3>3.1 Equipment in scope</h3>
+<p>Accessible equipment only: main and sub distribution boards / consumer units (closed cover, then open dead-front with a qualified electrician); MCBs / MCCBs / RCDs; incoming lugs; neutral and earth bars; busbars; accessible cable tails, tray or surface runs, glands and junctions; sockets, switches and isolators that can be photographed under load. Optional later: plant-room trays, generator / UPS boards if you provide access.</p>
+<p><strong>Not in this pilot:</strong> conductors buried in plaster, insulation or conduit with no surface heat; underground services; high-voltage UAV line inspection; live work by anyone other than a person qualified under your safety rules.</p>
+
+<h3>3.2 Fault types we will investigate</h3>
+<table>
+  <thead>
+    <tr><th>Fault / condition</th><th>What we investigate</th><th>RGB</th><th>Thermal</th><th>How we test</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Loose or corroded lug</td><td>Hotter than a sibling on the same bus under load?</td><td>Weak</td><td>Strong if loaded</td><td>Loaded capture; electrician-confirmed cases; optional staged lug on a training board only</td></tr>
+    <tr><td>Overloaded breaker or accessible cable</td><td>Hotter than neighbours on similar duty?</td><td>Weak</td><td>Strong if loaded</td><td>Two load levels if possible; clamp-meter note</td></tr>
+    <tr><td>Failing / hot breaker</td><td>One pole vs the bank</td><td>Weak</td><td>Strong</td><td>Sibling ΔT on the same row</td></tr>
+    <tr><td>Phase imbalance (if 3-phase)</td><td>Three phases thermally inconsistent?</td><td>No</td><td>Medium</td><td>Compare three poles in one frame</td></tr>
+    <tr><td>Burned / melted insulation</td><td>After-the-fact visible damage</td><td>Strong</td><td>Medium</td><td>RGB close-ups, labeled defects</td></tr>
+    <tr><td>Exposed copper / missing sheath</td><td>Visible conductor</td><td>Strong</td><td>No unless also hot</td><td>RGB <span class="id">exposed_conductor</span></td></tr>
+    <tr><td>Broken strand, cut, chew (close-up)</td><td>Mechanical damage on accessible cable</td><td>Medium–strong</td><td>No</td><td>RGB close-ups; discarded samples allowed</td></tr>
+    <tr><td>Open / disconnected conductor</td><td>Break with no current</td><td>Only if visible</td><td>No heat</td><td>Documented as out of thermal reach</td></tr>
+    <tr><td>In-wall insulated cable</td><td>Surface temperature on plaster</td><td>Almost never</td><td>Rare / faint</td><td>A few wall scans only to <em>show the limit</em>, not to sell the feature</td></tr>
+    <tr><td>Insulation-resistance fail, no heat</td><td>Electrical test fault</td><td>No</td><td>No</td><td>Not a computer-vision task; remains an electrician test</td></tr>
+    <tr><td>Intermittent fault not present at capture</td><td>Load / time dependent</td><td>No</td><td>No</td><td>We investigate capture timing and load protocol</td></tr>
+    <tr><td>IR lies (shiny metal, reflections)</td><td>False hot / cold</td><td>—</td><td>We will study this</td><td>Sibling ΔT; error gallery; optional high-e tape in lab</td></tr>
+  </tbody>
+</table>
+
+<h3>3.3 Operating conditions we will investigate</h3>
+<ul>
+  <li><strong>Load</strong> — low versus typical / peak (aim ≥ ~40% of typical circuit load). Light-load frames tagged <span class="id">low_load_unreliable</span>.</li>
+  <li><strong>Cover on vs off</strong> — homeowner view versus electrician view with dead-front removed.</li>
+  <li><strong>Distance and angle</strong> — whole board versus lug close-up; off-axis IR distortion.</li>
+  <li><strong>Ambient</strong>, sun on the board, HVAC blowing on copper.</li>
+  <li><strong>Radiometry</strong> — per-pixel temperature required for Delta T; rainbow-only JPEGs are not enough.</li>
+  <li><strong>Camera class</strong> — we check any camera you already own; minimum FLIR One Pro class if buying.</li>
+</ul>
+
+<h3>3.4 Technical questions we will answer in writing</h3>
+<ol>
+  <li>Does off-the-shelf COCO YOLO see breakers and cables? (Expected: no.)</li>
+  <li>Does a public substation / switchgear IR model transfer to your boards? (Expected: poorly — this is why we capture your data.)</li>
+  <li>Are masks better than boxes for averaging temperature on a crowded row of breakers?</li>
+  <li>Should severity come from a neural-net class name or from Delta T? (We implement Delta T as the judge.)</li>
+  <li>What does RGB catch, IR catch, and both catch?</li>
+  <li>What is the <strong>false-clear rate</strong> (hot confirmed fault missed)? Primary safety metric.</li>
+  <li>What is the false-alarm rate (reflections, healthy warmth)?</li>
+  <li>Is handheld pan video + ByteTrack useful? Only after stills work.</li>
+  <li>Laptop versus small server / Jetson — measured FPS and model size.</li>
+</ol>
+
+<h3>3.5 Standards and papers we will work against</h3>
+<p>NFPA 70B (2023) §7.4 — document Delta T under similar load. NETA MTS Table 100.18 — action bands. Wang et al. (IEEE TIM 2020) and Mo et al. (Scientific Reports 2026) — segment the object, then apply temperature rules. Liu et al. (IEEJ 2025) — find the component first, then the hotspot. Zhang et al. (ByteTrack, ECCV 2022) — identity in video, not heat. Jadin &amp; Taib (2012) — heat often precedes failure.</p>
+<p>We will not claim 95–99% field accuracy. Those published figures are on substations, switchgear, or simulated cables — not on your consumer units.</p>
+
+<h2>4. What we will do (work packages)</h2>
+
+<h3>WP0 — Discovery (complete)</h3>
+<p>Literature, dataset survey, feasibility limits, this proposal. You already have this pack.</p>
+
+<h3>WP1 — Toolchain and public-data baseline</h3>
+<p>Set up Ultralytics YOLO-seg; train on 1–2 public sets (RGB cable-damage and/or IR equipment); run a demo that shows the domain gap on generic panel photos. You receive a short image demo and a one-page note. This is not the production model.</p>
+
+<h3>WP2 — Site capture and labeling (critical path)</h3>
+<p>Specify the radiometric camera; shot list and metadata; capture with your qualified electrician; closed cover, open board, close-ups, optional second load, 10–20 s pan; label RGB (components + visible defects) and IR (components); split <strong>by board ID</strong>. You receive the private labeled set and class counts. You provide access, electrician, load, and anonymised site codes.</p>
+
+<h3>WP3 — Custom model and Delta T engine</h3>
+<p>Fine-tune YOLO-seg on your labels; read temperature inside each IR mask; ΔT versus siblings and ambient; NETA bands; fuse RGB defects with IR severity; still-image report generator. You receive pilot weights, a way to run one image pair, example reports, and accuracy on the held-out board.</p>
+
+<h3>WP4 — Pilot on held-out sites</h3>
+<p>Run on boards the model has not seen; electrician marks true/false; measure false-clears and false alarms; write the SOP (stance, load, how to read the report); freeze the “cannot detect” list. You receive the pilot report, error gallery, SOP, and a go / no-go for a later product phase.</p>
+
+<h3>WP5 — Video (optional)</h3>
+<p>ByteTrack so a hot breaker keeps the same ID while panning; suppress duplicate alerts. Starts only after still images are trustworthy.</p>
+
+<h2>5. Process — how the work will run</h2>
+<div class="process">Kickoff → WP1 baseline → Camera &amp; access confirmed
+     → WP2 capture days → Labeling → Split by board
+     → WP3 train + Delta T → Internal review
+     → WP4 live pilot + electrician review → SOP + limits
+     → (optional) WP5 video tracking
+     → Close-out pack</div>
+
+<h3>5.1 Kickoff</h3>
+<p>We agree in writing: sites and board types; who may open live panels; camera supply or purchase; whether a dedicated training board may be used for staged faults; anonymisation; that the software must never display “safe” or “passed inspection.”</p>
+
+<h3>5.2 Capture process (same every board)</h3>
+<ol>
+  <li>Record ambient °C, time, and load note (what is on). Clamp meter if available.</li>
+  <li>Closed cover: RGB + IR.</li>
+  <li>Electrician opens the dead-front under their rules.</li>
+  <li>Whole-board RGB + IR, square-on, no sun, no AC on the copper.</li>
+  <li>Close-ups: incoming lugs, neutral/earth bar, each bank, any discoloration.</li>
+  <li>Repeat a subset at a second load if possible.</li>
+  <li>10–20 second pan video for later tracking tests.</li>
+  <li>One filename stem plus JSON (cover, load, ambient, camera, radiometric yes/no).</li>
+  <li>Electrician may mark <span class="id">known_issue=true</span> when they already know a defect — gold label, not a class of “overload vs loose.”</li>
+</ol>
+
+<h3>5.3 Labeling process</h3>
+<p>Roboflow or CVAT, YOLO-seg export. RGB v1 classes: board, breaker, busbar, cable, outlet, lug, plus burn_mark, exposed_conductor, broken_cable, melted_plastic. IR v1: the same <em>component</em> names — we do not spend weeks labeling IR as overload versus loose; heat is scored by Delta T. Spot-check 10% of labels. Train/val/test = different boards.</p>
+
+<h3>5.4 Training and measurement process</h3>
+<ol>
+  <li>Start from COCO-pretrained YOLO-seg.</li>
+  <li>Optional public IR/cable pretrain, then fine-tune on your data.</li>
+  <li>Prefer temperature arrays for IR if the SDK allows.</li>
+  <li>For each IR mask: T_mean / T_max, ΔT_sibling, ΔT_ambient, NETA band.</li>
+  <li>Low load → tag unreliable; do not treat a quiet image as a pass.</li>
+  <li>Metrics we report: mAP@0.5; <strong>false-clear rate</strong> on confirmed hot faults; false-alarm rate on healthy siblings; a gallery of mistakes.</li>
+</ol>
+
+<h3>5.5 Report process (what the user sees)</h3>
+<p>Each finding: object ID; component type; visible defect yes/no; T and both Delta Ts; NETA-style action; load note; cover on/off; side-by-side RGB and IR crop.</p>
+<p class="footer-warn">Every report footer: “Screening only. Absence of a finding is not evidence the installation is safe. A qualified person must interpret results.”</p>
+
+<h3>5.6 How a finding is decided</h3>
+<div class="process">IF RGB shows a labeled visible defect above threshold
+    → raise a visible finding
+IF IR mask has ΔT in NETA “investigate” or worse AND load is adequate
+    → raise a thermal finding
+IF both → combined finding (highest trust)
+IF load is low → “no thermal finding” is tagged unreliable
+NEVER print “installation OK”</div>
+<p>The network finds the object. The temperature rule and a person find the fault.</p>
+<figure>
+  <img src="figures/fig05_system_pipeline.png" alt="Proposed inspection stack" />
+  <figcaption>Figure 1. YOLO locates. Radiometry judges. ByteTrack is video-only.</figcaption>
+</figure>
+
+<h2>6. Deliverables</h2>
+<table>
+  <thead><tr><th>#</th><th>Deliverable</th><th>When</th></tr></thead>
+  <tbody>
+    <tr><td>D1</td><td>This proposal, capture protocol, paper notes</td><td>Now</td></tr>
+    <tr><td>D2</td><td>Public-data baseline demo and domain-gap note</td><td>End WP1</td></tr>
+    <tr><td>D3</td><td>Camera specification (radiometric minimum)</td><td>Start WP2</td></tr>
+    <tr><td>D4</td><td>Labeled paired dataset of agreed sites (private)</td><td>End WP2</td></tr>
+    <tr><td>D5</td><td>Trained RGB and IR YOLO-seg (pilot weights)</td><td>End WP3</td></tr>
+    <tr><td>D6</td><td>Delta T module and still-image report samples</td><td>End WP3</td></tr>
+    <tr><td>D7</td><td>Pilot accuracy: mAP, false-clears, error gallery</td><td>End WP4</td></tr>
+    <tr><td>D8</td><td>Site SOP for the electrician / operator</td><td>End WP4</td></tr>
+    <tr><td>D9</td><td>Written limits of detection</td><td>End WP4</td></tr>
+    <tr><td>D10</td><td>Optional video tracking demo</td><td>WP5</td></tr>
+  </tbody>
+</table>
+<p>Indicative duration, not a quote: WP1 2–3 weeks; WP2 4–6 weeks (access-bound); WP3 4–6 weeks; WP4 3–4 weeks.</p>
+<figure>
+  <img src="figures/fig06_delivery_roadmap.png" alt="Indicative delivery roadmap" />
+  <figcaption>Figure 2. Order-of-magnitude timeline. WP2 (your data) is the critical path.</figcaption>
+</figure>
+
+<h2>7. What we need from you</h2>
+<ol>
+  <li>Written agreement this is screening, not a certified inspection.</li>
+  <li>Site list and permission to photograph (interiors anonymised).</li>
+  <li>A qualified person to open live panels under your safety rules.</li>
+  <li>Load during capture — empty buildings hide faults.</li>
+  <li>A radiometric camera, or approval to specify a purchase.</li>
+  <li>Time for a review session on the pilot report.</li>
+  <li>A decision after WP1: proceed to capture or stop.</li>
+</ol>
+
+<h2>8. What we will not do in this pilot</h2>
+<ul>
+  <li>Claim to X-ray wiring inside walls</li>
+  <li>Replace insulation-resistance, earth-loop, RCD, or polarity tests</li>
+  <li>Issue an EICR or any statutory certificate</li>
+  <li>Let the software say “safe” or “pass”</li>
+  <li>Publish identifiable interiors</li>
+  <li>Quote 99% from simulated or substation papers as your expected result</li>
+  <li>Start video tracking before still-image screening works</li>
+  <li>Stage dangerous faults on a live installation that serves occupants</li>
+</ul>
+
+<h2>9. Safety</h2>
+<p>Opening an energised board is an arc-flash and shock hazard. Cover-off capture is done only by a person qualified to do that work. Every thermal “all quiet” is not a bill of health. Unloaded circuits, closed covers, shiny metal, and intermittent faults will be called out in the SOP so operators do not over-trust the tool.</p>
+
+<h2>10. Risks</h2>
+<table>
+  <thead><tr><th>Risk</th><th>What we do</th></tr></thead>
+  <tbody>
+    <tr><td>Your boards look nothing like public data</td><td>WP1 measures the gap; WP2 is mandatory</td></tr>
+    <tr><td>Camera has no radiometry</td><td>We stop Delta T and specify a camera</td></tr>
+    <tr><td>Capture on a quiet day</td><td>Tag low load; reschedule peak load</td></tr>
+    <tr><td>Shiny copper fools IR</td><td>Sibling comparison; error gallery</td></tr>
+    <tr><td>Too few real faults</td><td>Safe staged faults on a training board; oversample defects</td></tr>
+    <tr><td>“No box” read as “no danger”</td><td>Report footer and SOP; never print “safe”</td></tr>
+    <tr><td>Same board in train and test</td><td>Split by board ID</td></tr>
+  </tbody>
+</table>
+
+<figure>
+  <img src="figures/fig02_fault_detectability.png" alt="RGB vs thermal detectability" />
+  <figcaption>Figure 3. Thermal is for heat under load on accessible metal. Visible YOLO is for damage you can already see. Neither covers a dead open circuit or a megger failure with no heat.</figcaption>
+</figure>
+
+<h2>11. Decision we ask you to make</h2>
+<ol>
+  <li><strong>Yes / no</strong> — the use case is accessible boards, trays, and junctions (not in-wall tomography).</li>
+  <li><strong>Yes / no</strong> — you can provide electrician and loaded capture windows.</li>
+  <li><strong>Camera</strong> — you have a radiometric unit, or you want a specification to buy.</li>
+  <li><strong>Approve WP1</strong> (public-data baseline) now, with WP2 gated on a short written go-ahead after the domain-gap demo.</li>
+</ol>
+<p>A shorter briefing exists as <code>CLIENT_PROPOSAL.html</code>. This document is the detailed statement of work.</p>
+
+<h2>12. Selected references</h2>
+<p style="font-size:13px;">Jadin &amp; Taib, Infrared Phys. Technol. 2012. Wang et al., IEEE TIM 2020. Xia et al., High Voltage 2021. Zhang et al., ByteTrack, ECCV 2022. NFPA 70B 2023 §7.4; NETA MTS Table 100.18. Tao et al., Appl. Sci. 2025. Liu et al., IEEJ 2025. Mo et al., Sci. Rep. 2026. Full paper cruxes: papers.md.</p>
+
+</body>
+</html>

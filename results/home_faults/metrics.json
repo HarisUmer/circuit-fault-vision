@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-08-30T01:59:22Z",
+  "claim": "Defect-only YOLO (open/short/damage) on PCB AOI + cables + stripped-wire close-ups. Still not a Pakistani consumer-unit model. No complete class.",
+  "dataset": {
+    "name": "home-faults (circuit-faults minus complete + PCB-IND + stripped-wire + indoor-socket backgrounds)",
+    "source": "PKU + DeepPCB + RF100 cable-damage + Zenodo PCB-IND + Zenodo stripped-wire",
+    "license": "mixed research/CC BY 4.0 public sets",
+    "classes": [
+      "open",
+      "short",
+      "damage"
+    ],
+    "splits": {
+      "train": 7084,
+      "val": 1028,
+      "test": 987
+    },
+    "modality": "RGB photos of PCBs, outdoor cables, and insulated-wire close-ups (not thermal, not Pakistani DBs)"
+  },
+  "training": {
+    "architecture": "YOLOv8n",
+    "imgsz": 320,
+    "epochs": 15,
+    "batch": 8,
+    "device": "cpu",
+    "amp": false,
+    "weights": "models/home_faults.pt",
+    "small_object_hyps": true,
+    "enhance_train_aug": true
+  },
+  "test_metrics": {
+    "split": "test",
+    "mAP50": 0.7134,
+    "mAP50-95": 0.4089,
+    "precision": 0.8103,
+    "recall": 0.6814,
+    "per_class_mAP50-95": {
+      "open": 0.4349,
+      "short": 0.3277,
+      "damage": 0.4642
+    }
+  },
+  "not_claimed": [
+    "Detection of in-wall / hidden wiring faults",
+    "Radiometric thermal Delta-T on residential boards",
+    "A board is electrically safe",
+    "Paper mAP figures (Tao 98.7%, Chen 99%) as this model's score",
+    "Synthetic home-wires mAP as field accuracy on real consumer units",
+    "PCB open/short mAP as accuracy on residential T&E or Pakistani DBs"
+  ]
+}

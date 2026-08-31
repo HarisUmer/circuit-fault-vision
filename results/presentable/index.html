@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Circuit fault vision — results</title>
+  <style>
+    :root {
+      --bg: #111318;
+      --card: #1a1d24;
+      --line: #2a2e38;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #8ab4f8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.45 system-ui, Segoe UI, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      padding: 32px 24px 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 28px; font-weight: 650; margin: 0 0 8px; }
+    h2 { font-size: 20px; font-weight: 600; margin: 36px 0 12px; }
+    p.lead, .note { color: var(--muted); max-width: 72ch; }
+    .warn {
+      border-left: 3px solid #f5c518;
+      padding: 10px 14px;
+      background: #2a2618;
+      color: #f0e6c8;
+      max-width: 80ch;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 1100px;
+      margin: 0 auto 8px;
+      padding: 0 24px;
+    }
+    @media (max-width: 800px) { .stats { grid-template-columns: 1fr 1fr; } }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+    }
+    .stat b { display: block; font-size: 22px; }
+    .stat span { color: var(--muted); font-size: 13px; }
+    main { max-width: 1100px; margin: 0 auto; padding: 8px 24px 64px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 12px 0 24px;
+    }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; }
+    figure {
+      margin: 0 0 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { padding: 10px 14px 14px; color: var(--muted); font-size: 14px; }
+    figcaption strong { color: var(--text); }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 800px) { .grid2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Circuit fault vision — results</h1>
+    <p class="lead">30 August 2026. Bounding boxes mark where a visible problem is. This is a screening aid, not an electrical certificate. Live panels: electrician only.</p>
+    <p class="warn">Do not say a circuit is complete or safe. Empty boxes mean nothing visible in this photo. PCB scores are not accuracy on a home consumer unit. Synthetic red/blue drawings are not in this gallery.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>0.888</b><span>Outdoor cable-damage test mAP50</span></div>
+    <div class="stat"><b>0.713</b><span>Defect-only mix test mAP50 (no complete)</span></div>
+    <div class="stat"><b>0.81</b><span>Defect-only precision</span></div>
+    <div class="stat"><b>0.68</b><span>Defect-only recall</span></div>
+  </div>
+
+  <main>
+    <h2>1. Outdoor cables — the investor RGB demo</h2>
+    <p class="note">YOLOv8n, 15 epochs, CPU, 320 px. Classes: break, thunderbolt. Not a home panel. Not thermal.</p>
+    <figure>
+      <img src="images/09_cable_damage_batch.jpg" alt="Cable damage validation batch" />
+      <figcaption><strong>Validation batch.</strong> Blue = strand break. Cyan = thunderbolt / burn-like mark. Test mAP50 0.888.</figcaption>
+    </figure>
+    <div class="grid2">
+      <figure>
+        <img src="images/14_cable_damage_closeup.jpg" alt="Cable close-up detection" />
+        <figcaption><strong>Close-up.</strong> Box on the damaged braid.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/15_cable_damage_break.jpg" alt="Cable break detection" />
+        <figcaption><strong>Four-class model</strong> on a cable photo (class name <code>damage</code>).</figcaption>
+      </figure>
+    </div>
+    <figure>
+      <img src="images/10_cable_damage_curves.png" alt="Cable damage training curves" />
+      <figcaption><strong>Training curves</strong> for the outdoor cable-damage run.</figcaption>
+    </figure>
+
+    <h2>2. Sharpening — original vs processed vs dual merge</h2>
+    <p class="note">Same weights. Left = raw photo + YOLO. Middle = CLAHE / sharpen / tophat + YOLO. Right = keep original boxes, add extras that do not overlap. Do not throw away the raw photo.</p>
+    <figure>
+      <img src="images/01_outdoor_cable_dual.jpg" alt="Cable dual merge" />
+      <figcaption><strong>Cable.</strong> Damage confidence rose from 0.59 on the raw frame to 0.70 after sharpening. Dual keeps the better score on the same spot.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/02_outdoor_cable_stages.jpg" alt="Cable processing stages" />
+      <figcaption><strong>Processing stages:</strong> original, CLAHE, sharpen, tophat, full recipe.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/03_pcb_opens_dual.jpg" alt="PCB opens dual merge" />
+      <figcaption><strong>PCB opens.</strong> Dual recovered extra true defects on this board (one of three test images where dual added a ground-truth box).</figcaption>
+    </figure>
+    <figure>
+      <img src="images/05_pcb_shorts_dual.jpg" alt="PCB shorts dual merge" />
+      <figcaption><strong>PCB shorts and damage.</strong> Tophat makes hairline gaps easier to see; dual keeps the original high-confidence short and adds new opens.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/07_color_pcb_short_dual.jpg" alt="Color PCB dual merge" />
+      <figcaption><strong>Color PCB (PKU).</strong> Tight boxes on the short / damage, not the whole healthy board.</figcaption>
+    </figure>
+    <div class="grid2">
+      <figure>
+        <img src="images/04_pcb_opens_stages.jpg" alt="PCB opens stages" />
+        <figcaption>Open-trace processing stages.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/06_pcb_shorts_stages.jpg" alt="PCB shorts stages" />
+        <figcaption>Short-trace processing stages.</figcaption>
+      </figure>
+    </div>
+
+    <h2>3. Numbers (defect boxes only — ignore “complete”)</h2>
+    <table>
+      <thead>
+        <tr><th>Mode</th><th>True defects</th><th>False boxes</th><th>Precision</th><th>Recall</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Original YOLO</td><td>1254</td><td>296</td><td>0.809</td><td>0.735</td></tr>
+        <tr><td>Enhanced image only</td><td>1144</td><td>194</td><td>0.855</td><td>0.671</td></tr>
+        <tr><td>Dual merge (keep original)</td><td>1257</td><td>342</td><td>0.786</td><td>0.737</td></tr>
+      </tbody>
+    </table>
+    <p class="note">484 test images, IoU 0.5, conf 0.25 on the raw frame and 0.40 on extras. This is not Ultralytics mAP and not field accuracy on a Pakistani consumer unit. Tiled inference at 0.25 precision was 0.12 — not used by default.</p>
+    <div class="grid2">
+      <figure>
+        <img src="images/11_circuit_faults_curves.png" alt="Circuit faults training curves" />
+        <figcaption>Circuit-faults training curves. Test mAP50 0.831. Open/short mAP50-95 ≈ 0.45–0.48 — that is the real work.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/12_circuit_faults_confusion.png" alt="Confusion matrix" />
+        <figcaption>Confusion matrix. The <code>complete</code> class is easy full-crop boxes (mAP50-95 0.995). Product lock: drop it. Box the defect only.</figcaption>
+      </figure>
+    </div>
+
+    <h2>4. Why we do not box “complete”</h2>
+    <figure>
+      <img src="images/13_why_not_complete_class.jpg" alt="Complete class paints the whole board" />
+      <figcaption><strong>Do not show this as the product.</strong> Blue boxes labelled complete wrap the whole board. Tiny opens and missing holes in the other tiles have no boxes. That is why completeness is an electrician’s test, not a YOLO class.</figcaption>
+    </figure>
+
+    <h2>5. Defect-only retrain (open / short / damage)</h2>
+    <p class="note">Fine-tune from circuit_faults.pt, 15 epochs, CPU, 320 px. Dropped <code>complete</code>. Added PCB-IND, stripped-wire close-ups, and unlabeled indoor sockets so a normal wall outlet is not a defect class. Headline mAP is lower than 0.831 because that old score was inflated by easy full-board <code>complete</code> boxes. This is still not a Pakistani consumer-unit or burned-socket model.</p>
+    <table>
+      <thead>
+        <tr><th>Class</th><th>Test mAP50</th><th>Test mAP50-95</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>open</td><td>0.747</td><td>0.435</td></tr>
+        <tr><td>short</td><td>0.629</td><td>0.328</td></tr>
+        <tr><td>damage</td><td>0.764</td><td>0.464</td></tr>
+        <tr><td>all</td><td><strong>0.713</strong></td><td>0.409</td></tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="images/16_home_faults_val.jpg" alt="Home-faults validation mosaic" />
+      <figcaption><strong>Validation mosaic.</strong> Defect boxes only. No complete class wrapping the whole board.</figcaption>
+    </figure>
+    <div class="grid2">
+      <figure>
+        <img src="images/19_home_faults_pcb.jpg" alt="PCB open short damage" />
+        <figcaption><strong>PCB traces.</strong> Open, short, and damage as separate boxes (not the whole crop).</figcaption>
+      </figure>
+      <figure>
+        <img src="images/20_home_faults_cable.jpg" alt="Outdoor cable damage" />
+        <figcaption><strong>Outdoor cable.</strong> Box on the broken strand (<code>damage</code>).</figcaption>
+      </figure>
+    </div>
+    <div class="grid2">
+      <figure>
+        <img src="images/21_home_faults_wire.jpg" alt="Stripped wire" />
+        <figcaption><strong>Stripped wire close-up.</strong> Cut/pulled strands mapped to <code>damage</code>.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/22_home_faults_socket_empty.jpg" alt="Normal indoor socket with no box" />
+        <figcaption><strong>Normal indoor socket.</strong> Empty detections = nothing visible in this photo, not “safe.” Some other socket stills still get a low-confidence false box — HazardDetector burned sockets are not in this mix.</figcaption>
+      </figure>
+    </div>
+    <div class="grid2">
+      <figure>
+        <img src="images/17_home_faults_curves.png" alt="Home-faults training curves" />
+        <figcaption>Training curves. 7,084 train images, 15 epochs.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/18_home_faults_confusion.png" alt="Home-faults confusion matrix" />
+        <figcaption>Confusion matrix for open / short / damage. Short is the weakest class.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Locked claims</h2>
+    <ul class="note">
+      <li>Screening aid. Never print safe.</li>
+      <li>RGB cannot see in-wall faults. Heat needs a radiometric camera under load.</li>
+      <li>Do not quote Tao 98.7% or Chen 99% (simulation) as this model’s score.</li>
+      <li>Next: HazardDetector if a Roboflow key is available, then own labeled DB photos, then 640 px / GPU.</li>
+    </ul>
+  </main>
+</body>
+</html>

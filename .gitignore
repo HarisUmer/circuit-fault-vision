@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+
+# Model weights and training artifacts
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+runs/
+wandb/
+ultralytics/
+
+# Investor demo: tiny YOLOv8n + annotated proof shots (keep these)
+!models/investor_proof.pt
+!models/home_wires.pt
+!models/circuit_faults.pt
+!models/home_faults.pt
+!results/home_faults/
+!results/home_faults/**
+!results/investor_proof/
+!results/investor_proof/**
+!results/home_wires/
+!results/home_wires/**
+!results/circuit_faults/
+!results/circuit_faults/**
+!results/enhance_proof/
+!results/enhance_proof/**
+!results/presentable/
+!results/presentable/**
+
+# Do not republish extra unlabeled dataset copies used only for local infer
+results/home_faults/gallery_src/
+
+# Data (keep folder placeholders only)
+data/public/**
+!data/public/.gitkeep
+data/own/**
+!data/own/.gitkeep
+!data/own/README.md
+data/raw/**
+!data/raw/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

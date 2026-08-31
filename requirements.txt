@@ -1,0 +1,6 @@
+ultralytics>=8.3.0
+huggingface_hub>=0.34.0
+pyyaml>=6.0
+# Must match the installed torch. torch 2.2.2+cpu needs torchvision 0.17.2
+# (0.19+ crashes: torch.library has no attribute register_fake).
+torchvision>=0.17.2,<0.18

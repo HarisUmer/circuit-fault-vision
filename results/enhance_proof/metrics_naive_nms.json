@@ -1,0 +1,126 @@
+{
+  "created_utc": "2026-08-28T09:23:49Z",
+  "weights": "F:/pange/circuit_fault_vision/models/circuit_faults.pt",
+  "n_images": 484,
+  "imgsz": 320,
+  "conf": 0.25,
+  "iou": 0.5,
+  "all_classes": {
+    "original": {
+      "tp": 1311,
+      "fp": 296,
+      "fn": 458,
+      "gt": 1769,
+      "pred": 1607,
+      "precision": 0.8158,
+      "recall": 0.7411,
+      "f1": 0.7767
+    },
+    "enhanced": {
+      "tp": 1264,
+      "fp": 379,
+      "fn": 505,
+      "gt": 1769,
+      "pred": 1643,
+      "precision": 0.7693,
+      "recall": 0.7145,
+      "f1": 0.7409
+    },
+    "dual": {
+      "tp": 1318,
+      "fp": 416,
+      "fn": 451,
+      "gt": 1769,
+      "pred": 1734,
+      "precision": 0.7601,
+      "recall": 0.7451,
+      "f1": 0.7525
+    }
+  },
+  "defect_only_ignore_complete": {
+    "original": {
+      "tp": 1254,
+      "fp": 296,
+      "fn": 452,
+      "gt": 1706,
+      "pred": 1550,
+      "precision": 0.809,
+      "recall": 0.7351,
+      "f1": 0.7703
+    },
+    "enhanced": {
+      "tp": 1211,
+      "fp": 379,
+      "fn": 495,
+      "gt": 1706,
+      "pred": 1590,
+      "precision": 0.7616,
+      "recall": 0.7098,
+      "f1": 0.7348
+    },
+    "dual": {
+      "tp": 1261,
+      "fp": 416,
+      "fn": 445,
+      "gt": 1706,
+      "pred": 1677,
+      "precision": 0.7519,
+      "recall": 0.7392,
+      "f1": 0.7455
+    }
+  },
+  "tiles_subset": {
+    "n_images": 60,
+    "metrics_defect_only": {
+      "original": {
+        "tp": 56,
+        "fp": 5,
+        "fn": 8,
+        "gt": 64,
+        "pred": 61,
+        "precision": 0.918,
+        "recall": 0.875,
+        "f1": 0.896
+      },
+      "tiles": {
+        "tp": 40,
+        "fp": 288,
+        "fn": 24,
+        "gt": 64,
+        "pred": 328,
+        "precision": 0.122,
+        "recall": 0.625,
+        "f1": 0.2041
+      },
+      "dual_tiles": {
+        "tp": 52,
+        "fp": 129,
+        "fn": 12,
+        "gt": 64,
+        "pred": 181,
+        "precision": 0.2873,
+        "recall": 0.8125,
+        "f1": 0.4245
+      }
+    }
+  },
+  "images_where_dual_recovered_extra_gt": [
+    "deeppcb_0314_20085211_test.jpg",
+    "deeppcb_0328_20085319_test.jpg",
+    "deeppcb_0330_00041139_test.jpg",
+    "deeppcb_0360_92000096_test.jpg",
+    "deeppcb_0379_20085094_test.jpg",
+    "deeppcb_0390_50600048_test.jpg",
+    "deeppcb_0417_20085268_test.jpg",
+    "deeppcb_0456_13000124_test.jpg",
+    "deeppcb_0482_12300144_test.jpg",
+    "pku_0003_mouse_bite61.jpg",
+    "pku_0038_spur106.jpg"
+  ],
+  "n_dual_helped": 11,
+  "not_claimed": [
+    "This is not a new trained mAP from Ultralytics val()",
+    "PCB/cable test photos are not Pakistani consumer units",
+    "No boxes still does not mean electrically complete or safe"
+  ]
+}

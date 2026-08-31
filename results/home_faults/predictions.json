@@ -1,0 +1,332 @@
+[
+  {
+    "image": "cf_cable_0146_bandicam-2022-05-31-00-45-21-525_mp4-53_jpg.rf.71232d38dc6548f759025f.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.386
+      }
+    ],
+    "saved": "pred_cf_cable_0146_bandicam-2022-05-31-00-45-21-525_mp4-53_jpg.rf.71232d38dc6548f759025f.jpg"
+  },
+  {
+    "image": "cf_cable_0147_IMG_6258_MOV-51_jpg.rf.92128a7d157098bda170729c7daf890b.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.615
+      }
+    ],
+    "saved": "pred_cf_cable_0147_IMG_6258_MOV-51_jpg.rf.92128a7d157098bda170729c7daf890b.jpg"
+  },
+  {
+    "image": "cf_cable_0148_bandicam-2022-05-31-00-48-19-946_mp4-28_jpg.rf.222a61017a6b109fd4738d.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.547
+      }
+    ],
+    "saved": "pred_cf_cable_0148_bandicam-2022-05-31-00-48-19-946_mp4-28_jpg.rf.222a61017a6b109fd4738d.jpg"
+  },
+  {
+    "image": "cf_cable_0149_--------------2022-02-24---16-37-57_png_jpg.rf.81db6bb23a0da56a9f83db.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.398
+      }
+    ],
+    "saved": "pred_cf_cable_0149_--------------2022-02-24---16-37-57_png_jpg.rf.81db6bb23a0da56a9f83db.jpg"
+  },
+  {
+    "image": "cf_deeppcb_0304_92000010_test.jpg",
+    "n": 4,
+    "detections": [
+      {
+        "class": "short",
+        "conf": 0.884
+      },
+      {
+        "class": "open",
+        "conf": 0.854
+      },
+      {
+        "class": "damage",
+        "conf": 0.786
+      },
+      {
+        "class": "damage",
+        "conf": 0.752
+      }
+    ],
+    "saved": "pred_cf_deeppcb_0304_92000010_test.jpg"
+  },
+  {
+    "image": "cf_deeppcb_0305_13000205_test.jpg",
+    "n": 7,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.863
+      },
+      {
+        "class": "open",
+        "conf": 0.86
+      },
+      {
+        "class": "damage",
+        "conf": 0.801
+      },
+      {
+        "class": "damage",
+        "conf": 0.787
+      },
+      {
+        "class": "damage",
+        "conf": 0.778
+      },
+      {
+        "class": "damage",
+        "conf": 0.757
+      },
+      {
+        "class": "damage",
+        "conf": 0.436
+      }
+    ],
+    "saved": "pred_cf_deeppcb_0305_13000205_test.jpg"
+  },
+  {
+    "image": "cf_deeppcb_0306_90100046_test.jpg",
+    "n": 6,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.872
+      },
+      {
+        "class": "damage",
+        "conf": 0.793
+      },
+      {
+        "class": "open",
+        "conf": 0.723
+      },
+      {
+        "class": "open",
+        "conf": 0.669
+      },
+      {
+        "class": "damage",
+        "conf": 0.657
+      },
+      {
+        "class": "damage",
+        "conf": 0.535
+      }
+    ],
+    "saved": "pred_cf_deeppcb_0306_90100046_test.jpg"
+  },
+  {
+    "image": "cf_deeppcb_0307_92000079_test.jpg",
+    "n": 13,
+    "detections": [
+      {
+        "class": "open",
+        "conf": 0.865
+      },
+      {
+        "class": "damage",
+        "conf": 0.825
+      },
+      {
+        "class": "damage",
+        "conf": 0.753
+      },
+      {
+        "class": "damage",
+        "conf": 0.648
+      },
+      {
+        "class": "damage",
+        "conf": 0.611
+      },
+      {
+        "class": "damage",
+        "conf": 0.567
+      },
+      {
+        "class": "damage",
+        "conf": 0.557
+      },
+      {
+        "class": "open",
+        "conf": 0.534
+      },
+      {
+        "class": "damage",
+        "conf": 0.459
+      },
+      {
+        "class": "short",
+        "conf": 0.456
+      },
+      {
+        "class": "damage",
+        "conf": 0.434
+      },
+      {
+        "class": "damage",
+        "conf": 0.428
+      },
+      {
+        "class": "damage",
+        "conf": 0.312
+      }
+    ],
+    "saved": "pred_cf_deeppcb_0307_92000079_test.jpg"
+  },
+  {
+    "image": "ind_5810_t_007.jpg",
+    "n": 2,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.417
+      },
+      {
+        "class": "damage",
+        "conf": 0.32
+      }
+    ],
+    "saved": "pred_ind_5810_t_007.jpg"
+  },
+  {
+    "image": "ind_5824_t_001.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.762
+      }
+    ],
+    "saved": "pred_ind_5824_t_001.jpg"
+  },
+  {
+    "image": "ind_5824_t_002.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.737
+      }
+    ],
+    "saved": "pred_ind_5824_t_002.jpg"
+  },
+  {
+    "image": "ind_5831_b_001.jpg",
+    "n": 3,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.573
+      },
+      {
+        "class": "damage",
+        "conf": 0.572
+      },
+      {
+        "class": "damage",
+        "conf": 0.348
+      }
+    ],
+    "saved": "pred_ind_5831_b_001.jpg"
+  },
+  {
+    "image": "sock_1010_jpg.rf.a684cd2a2c7058cd82000d726bb5497f.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.426
+      }
+    ],
+    "saved": "pred_sock_1010_jpg.rf.a684cd2a2c7058cd82000d726bb5497f.jpg"
+  },
+  {
+    "image": "sock_1010_jpg.rf.c93ef23e5253f35c849bd105b66b693f.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.377
+      }
+    ],
+    "saved": "pred_sock_1010_jpg.rf.c93ef23e5253f35c849bd105b66b693f.jpg"
+  },
+  {
+    "image": "sock_1019_jpg.rf.8452b78c0e69846a4d2f11290722db3a.jpg",
+    "n": 0,
+    "detections": [],
+    "saved": "pred_sock_1019_jpg.rf.8452b78c0e69846a4d2f11290722db3a.jpg"
+  },
+  {
+    "image": "sock_1019_jpg.rf.a628c6a2cc55b054d64ca818476c4de8.jpg",
+    "n": 0,
+    "detections": [],
+    "saved": "pred_sock_1019_jpg.rf.a628c6a2cc55b054d64ca818476c4de8.jpg"
+  },
+  {
+    "image": "sw_100_10-07-14.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.41
+      }
+    ],
+    "saved": "pred_sw_100_10-07-14.jpg"
+  },
+  {
+    "image": "sw_110_10-20-19.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.392
+      }
+    ],
+    "saved": "pred_sw_110_10-20-19.jpg"
+  },
+  {
+    "image": "sw_118_09-23-28.jpg",
+    "n": 1,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.508
+      }
+    ],
+    "saved": "pred_sw_118_09-23-28.jpg"
+  },
+  {
+    "image": "sw_125_14-18-03.jpg",
+    "n": 2,
+    "detections": [
+      {
+        "class": "damage",
+        "conf": 0.496
+      },
+      {
+        "class": "damage",
+        "conf": 0.316
+      }
+    ],
+    "saved": "pred_sw_125_14-18-03.jpg"
+  }
+]

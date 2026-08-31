@@ -1,0 +1,44 @@
+{
+  "created_utc": "2026-08-27T08:43:31Z",
+  "claim": "Public RGB cable-damage detection is trainable. This is not a home-panel thermal model.",
+  "dataset": {
+    "name": "Roboflow 100 cable-damage",
+    "source": "https://huggingface.co/datasets/LibreYOLO/cable-damage",
+    "license": "CC BY 4.0",
+    "classes": [
+      "break",
+      "thunderbolt"
+    ],
+    "splits": {
+      "train": 919,
+      "val": 265,
+      "test": 134
+    },
+    "modality": "RGB (not thermal)"
+  },
+  "training": {
+    "architecture": "YOLOv8n",
+    "imgsz": 320,
+    "epochs": 15,
+    "batch": 8,
+    "device": "cpu",
+    "weights": "models/investor_proof.pt"
+  },
+  "test_metrics": {
+    "split": "test",
+    "mAP50": 0.8876,
+    "mAP50-95": 0.4233,
+    "precision": 0.8421,
+    "recall": 0.9104,
+    "per_class_mAP50-95": {
+      "break": 0.3686,
+      "thunderbolt": 0.4781
+    }
+  },
+  "not_claimed": [
+    "Detection of in-wall / hidden wiring faults",
+    "Radiometric thermal Delta-T on residential boards",
+    "A board is electrically safe",
+    "Paper mAP figures (Tao 98.7%, Chen 99%) as this model's score"
+  ]
+}

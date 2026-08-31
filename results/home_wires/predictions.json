@@ -1,0 +1,534 @@
+[
+  {
+    "image": "home_0577.jpg",
+    "n": 8,
+    "detections": [
+      {
+        "class": "red_live",
+        "conf": 0.982
+      },
+      {
+        "class": "burnt",
+        "conf": 0.895
+      },
+      {
+        "class": "red_live",
+        "conf": 0.872
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.746
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.582
+      },
+      {
+        "class": "earth",
+        "conf": 0.407
+      },
+      {
+        "class": "brown_live",
+        "conf": 0.357
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.337
+      }
+    ],
+    "saved": "pred_home_0577.jpg"
+  },
+  {
+    "image": "home_0578.jpg",
+    "n": 6,
+    "detections": [
+      {
+        "class": "red_live",
+        "conf": 0.924
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.618
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.581
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.564
+      },
+      {
+        "class": "red_live",
+        "conf": 0.498
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.429
+      }
+    ],
+    "saved": "pred_home_0578.jpg"
+  },
+  {
+    "image": "home_0579.jpg",
+    "n": 10,
+    "detections": [
+      {
+        "class": "burnt",
+        "conf": 0.947
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.823
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.713
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.64
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.479
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.334
+      },
+      {
+        "class": "red_live",
+        "conf": 0.322
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.288
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.275
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.266
+      }
+    ],
+    "saved": "pred_home_0579.jpg"
+  },
+  {
+    "image": "home_0580.jpg",
+    "n": 3,
+    "detections": [
+      {
+        "class": "blue_neutral",
+        "conf": 0.925
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.809
+      },
+      {
+        "class": "red_live",
+        "conf": 0.541
+      }
+    ],
+    "saved": "pred_home_0580.jpg"
+  },
+  {
+    "image": "home_0581.jpg",
+    "n": 7,
+    "detections": [
+      {
+        "class": "burnt",
+        "conf": 0.986
+      },
+      {
+        "class": "red_live",
+        "conf": 0.86
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.775
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.681
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.49
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.33
+      },
+      {
+        "class": "earth",
+        "conf": 0.327
+      }
+    ],
+    "saved": "pred_home_0581.jpg"
+  },
+  {
+    "image": "home_0582.jpg",
+    "n": 7,
+    "detections": [
+      {
+        "class": "burnt",
+        "conf": 0.997
+      },
+      {
+        "class": "burnt",
+        "conf": 0.973
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.964
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.952
+      },
+      {
+        "class": "red_live",
+        "conf": 0.886
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.545
+      },
+      {
+        "class": "red_live",
+        "conf": 0.307
+      }
+    ],
+    "saved": "pred_home_0582.jpg"
+  },
+  {
+    "image": "home_0583.jpg",
+    "n": 9,
+    "detections": [
+      {
+        "class": "blue_neutral",
+        "conf": 0.96
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.914
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.887
+      },
+      {
+        "class": "red_live",
+        "conf": 0.854
+      },
+      {
+        "class": "earth",
+        "conf": 0.707
+      },
+      {
+        "class": "red_live",
+        "conf": 0.685
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.565
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.361
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.303
+      }
+    ],
+    "saved": "pred_home_0583.jpg"
+  },
+  {
+    "image": "home_0584.jpg",
+    "n": 5,
+    "detections": [
+      {
+        "class": "burnt",
+        "conf": 0.988
+      },
+      {
+        "class": "red_live",
+        "conf": 0.936
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.49
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.357
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.322
+      }
+    ],
+    "saved": "pred_home_0584.jpg"
+  },
+  {
+    "image": "home_0585.jpg",
+    "n": 5,
+    "detections": [
+      {
+        "class": "red_live",
+        "conf": 0.942
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.81
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.654
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.473
+      },
+      {
+        "class": "brown_live",
+        "conf": 0.268
+      }
+    ],
+    "saved": "pred_home_0585.jpg"
+  },
+  {
+    "image": "home_0586.jpg",
+    "n": 9,
+    "detections": [
+      {
+        "class": "blue_neutral",
+        "conf": 0.989
+      },
+      {
+        "class": "burnt",
+        "conf": 0.982
+      },
+      {
+        "class": "red_live",
+        "conf": 0.73
+      },
+      {
+        "class": "red_live",
+        "conf": 0.614
+      },
+      {
+        "class": "burnt",
+        "conf": 0.594
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.547
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.466
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.425
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.361
+      }
+    ],
+    "saved": "pred_home_0586.jpg"
+  },
+  {
+    "image": "home_0587.jpg",
+    "n": 4,
+    "detections": [
+      {
+        "class": "red_live",
+        "conf": 0.918
+      },
+      {
+        "class": "red_live",
+        "conf": 0.894
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.7
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.5
+      }
+    ],
+    "saved": "pred_home_0587.jpg"
+  },
+  {
+    "image": "home_0588.jpg",
+    "n": 6,
+    "detections": [
+      {
+        "class": "red_live",
+        "conf": 0.807
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.786
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.681
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.616
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.42
+      },
+      {
+        "class": "brown_live",
+        "conf": 0.412
+      }
+    ],
+    "saved": "pred_home_0588.jpg"
+  },
+  {
+    "image": "home_0589.jpg",
+    "n": 10,
+    "detections": [
+      {
+        "class": "earth",
+        "conf": 0.961
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.936
+      },
+      {
+        "class": "brown_live",
+        "conf": 0.689
+      },
+      {
+        "class": "red_live",
+        "conf": 0.577
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.571
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.565
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.536
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.447
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.439
+      },
+      {
+        "class": "brown_live",
+        "conf": 0.325
+      }
+    ],
+    "saved": "pred_home_0589.jpg"
+  },
+  {
+    "image": "home_0590.jpg",
+    "n": 7,
+    "detections": [
+      {
+        "class": "black_wire",
+        "conf": 0.843
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.681
+      },
+      {
+        "class": "red_live",
+        "conf": 0.563
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.436
+      },
+      {
+        "class": "earth",
+        "conf": 0.352
+      },
+      {
+        "class": "earth",
+        "conf": 0.314
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.311
+      }
+    ],
+    "saved": "pred_home_0590.jpg"
+  },
+  {
+    "image": "home_0591.jpg",
+    "n": 2,
+    "detections": [
+      {
+        "class": "blue_neutral",
+        "conf": 0.596
+      },
+      {
+        "class": "black_wire",
+        "conf": 0.304
+      }
+    ],
+    "saved": "pred_home_0591.jpg"
+  },
+  {
+    "image": "home_0592.jpg",
+    "n": 7,
+    "detections": [
+      {
+        "class": "burnt",
+        "conf": 0.985
+      },
+      {
+        "class": "earth",
+        "conf": 0.726
+      },
+      {
+        "class": "blue_neutral",
+        "conf": 0.632
+      },
+      {
+        "class": "red_live",
+        "conf": 0.598
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.569
+      },
+      {
+        "class": "exposed_copper",
+        "conf": 0.381
+      },
+      {
+        "class": "earth",
+        "conf": 0.359
+      }
+    ],
+    "saved": "pred_home_0592.jpg"
+  }
+]

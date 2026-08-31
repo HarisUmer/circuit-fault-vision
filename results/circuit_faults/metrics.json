@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-08-27T16:44:35Z",
+  "claim": "YOLO can locate complete vs open vs short vs damage on real circuit/cable photos. PCB traces \u2260 home T&E.",
+  "dataset": {
+    "name": "circuit-faults (PKU-Market-PCB + DeepPCB + RF100 cable-damage)",
+    "source": "https://huggingface.co/datasets/RobotHuman/PCB_defect + thangkt/PCB-Prune-YOLO-DeepPCB + LibreYOLO/cable-damage",
+    "license": "research-use PCB sets + cable-damage CC BY 4.0",
+    "classes": [
+      "complete",
+      "incomplete",
+      "wires_touching",
+      "damage"
+    ],
+    "splits": {
+      "train": 3032,
+      "val": 525,
+      "test": 484
+    },
+    "modality": "RGB photographs of PCBs and cables (not thermal, not residential DBs)"
+  },
+  "training": {
+    "architecture": "YOLOv8n",
+    "imgsz": 320,
+    "epochs": 15,
+    "batch": 8,
+    "device": "cpu",
+    "amp": false,
+    "weights": "models/circuit_faults.pt"
+  },
+  "test_metrics": {
+    "split": "test",
+    "mAP50": 0.8307,
+    "mAP50-95": 0.6048,
+    "precision": 0.9289,
+    "recall": 0.7684,
+    "per_class_mAP50-95": {
+      "complete": 0.995,
+      "incomplete": 0.4809,
+      "wires_touching": 0.4475,
+      "damage": 0.4957
+    }
+  },
+  "not_claimed": [
+    "Detection of in-wall / hidden wiring faults",
+    "Radiometric thermal Delta-T on residential boards",
+    "A board is electrically safe",
+    "Paper mAP figures (Tao 98.7%, Chen 99%) as this model's score",
+    "Synthetic home-wires mAP as field accuracy on real consumer units",
+    "PCB open/short mAP as accuracy on residential T&E or Pakistani DBs"
+  ]
+}
