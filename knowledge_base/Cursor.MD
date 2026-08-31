@@ -108,4 +108,4 @@ python -m src.eval_enhance
 - 2026-08-16: Client pack + papers + SoW HTML.
 - 2026-08-27: Cable-damage YOLO mAP50 0.888. Synthetic home-wires (later rejected as real-wire demo). Circuit-faults train mAP50 0.831. Two-scale plan. Ontology: defect boxes only.
 - 2026-08-28: CLAHE/unsharp/tophat + dual merge. albumentations 2.0.8. DefectTrainer wired, **not** retrained. Presentable gallery: `results/presentable/`.
-- 2026-08-31: User asked to publish code, presentable gallery, findings, and weights to a new GitHub repo.
+- 2026-08-31: Published https://github.com/HarisUmer/circuit-fault-vision (public). Code + presentable + four `.pt` weights.
